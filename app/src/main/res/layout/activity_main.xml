@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView android:text="Sea Goodness"
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="#fff400" />
+
+    <Button
+        android:id="@+id/bt_menu_species"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="45dp"
+        android:text="Seafood Species"
+        android:textColor="#e5eff9"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_menu_method"
+        android:text="Cooking Method"
+        android:textColor="#e5eff9"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/bt_menu_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_menu_tiptrick"
+        android:text="Tips and Tricks"
+        android:textColor="#e5eff9"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/bt_menu_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
