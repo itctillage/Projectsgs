@@ -76,7 +76,7 @@ public class MainActivity extends ActionBarActivity {
     private Context context;
 
     // TODO: change to your own sender ID to Google Developers Console project number, as per instructions above
-    private static final String SENDER_ID = "484003405342";
+    private static final String SENDER_ID = "My Project Number";
 
     public GcmRegistrationAsyncTask(Context context) {
         this.context = context;
