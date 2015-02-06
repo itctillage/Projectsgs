@@ -4,6 +4,7 @@ package com.example.rubi.projectsgs;
  * Created by Rubi on 09/01/2015.
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,37 +13,36 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.rubi.projectsgs.Model.FishRecipeAdapter;
+import com.example.rubi.projectsgs.database.SeafoodDBSource;
+import com.example.rubi.projectsgs.Model.FishObject;
 
 import java.util.ArrayList;
 
 public class FishRecipe extends SeafoodBaseAct {
 
-    ArrayList<String> recipeList;
+    ArrayList<FishObject> recipeList;
+    SeafoodDBSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seafood_fish_recipe);
+        dataSource = new SeafoodDBSource(this);
+        dataSource.open();
 
         recipeList = new ArrayList<>();
-        recipeList.add("Cod");
-        recipeList.add("Tuna");
-        recipeList.add("Sailfish");
-        recipeList.add("Sardine");
-        recipeList.add("Trevally");
-        recipeList.add("Salmon");
-        recipeList.add("Shark");
+        recipeList = dataSource.getAllFish();
+
 
         final ListView listview = (ListView) findViewById(R.id.lv_mon_listview);
-        final FishRecipeAdapter adapter = new FishRecipeAdapter(this,
-                recipeList, null);
+        final FishRecipeAdapter adapter = new FishRecipeAdapter(this, recipeList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,final int position, long id) {
-
+                startActivity(new Intent(FishRecipe.this, SeafoodDetails.class).putExtra("data", recipeList.get(position)));
             }
 
         });

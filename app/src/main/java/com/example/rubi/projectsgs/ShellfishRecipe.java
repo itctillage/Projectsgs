@@ -2,13 +2,7 @@ package com.example.rubi.projectsgs;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.example.rubi.projectsgs.Model.FishRecipeAdapter;
 
 import java.util.ArrayList;
 
@@ -19,7 +13,7 @@ public class ShellfishRecipe  extends ActionBarActivity {
 
     private ArrayList<String> recipeList;
 
-    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seafood_shellfish_recipe);
@@ -34,8 +28,8 @@ public class ShellfishRecipe  extends ActionBarActivity {
         recipeList.add("Crabs");
 
         final ListView listview = (ListView) findViewById(R.id.lv_mon_listview);
-        final FishRecipeAdapter adapter = new FishRecipeAdapter(this,
-                recipeList, null);
+        /*final FishRecipeAdapter adapter = new FishRecipeAdapter(this,
+                recipeList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,6 +62,6 @@ public class ShellfishRecipe  extends ActionBarActivity {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item); */
     }
 }

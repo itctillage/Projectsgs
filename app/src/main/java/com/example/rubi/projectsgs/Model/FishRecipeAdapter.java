@@ -15,17 +15,17 @@ import java.util.ArrayList;
 /**
  * Created by Rubi on 09/01/2015.
  */
-public class FishRecipeAdapter extends ArrayAdapter<String> {
+public class FishRecipeAdapter extends ArrayAdapter<FishObject> {
 
     private final Activity context;
-    private final ArrayList<String> jobses;
+    private final ArrayList<FishObject> fishes;
 
-    public FishRecipeAdapter(Activity context, ArrayList<String> jobsList, Integer[] imgid) {
-        super(context, R.layout.item_recipe_species, jobsList);
+    public FishRecipeAdapter(Activity context, ArrayList<FishObject> fishList) {
+        super(context, R.layout.item_recipe_species, fishList);
         // TODO Auto-generated constructor stub
 
-        this.context=context;
-        this.jobses=jobsList;
+        this.context =context;
+        this.fishes = fishList;
     }
 
     @Override
@@ -36,7 +36,8 @@ public class FishRecipeAdapter extends ArrayAdapter<String> {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.tv_fish_item);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.iv_fish_item);
 
-        txtTitle.setText("Job Name "+jobses.get(position));
+        txtTitle.setText("Job Name "+fishes.get(position).getCookingName());
+        imageView.setImageResource(fishes.get(position).getImageId());
 
         return rowView;
     };

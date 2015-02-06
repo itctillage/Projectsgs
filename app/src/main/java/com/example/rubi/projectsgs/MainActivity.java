@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.rubi.myapplication.backend.registration.Registration;
+import com.example.rubi.projectsgs.Model.FishObject;
+import com.example.rubi.projectsgs.database.SeafoodDBSource;
+import com.example.rubi.projectsgs.utils.SeafoodConstant;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -28,6 +31,7 @@ public class MainActivity extends ActionBarActivity {
     private Button btSpecies;
     private Button btMethod;
     private Button btTipsTrick;
+    private SeafoodDBSource dbSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,30 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, SeafoodSpecies.class));
+            }
+        });
+        dbSource = new SeafoodDBSource(this);
+        dbSource.open();
+
+        FishObject fish1 = new FishObject();
+        fish1.setImageId(R.drawable.ic_kerapu);
+        fish1.setCookingName("COD in Batter");
+        fish1.setType(SeafoodConstant.TYPE_FISH);
+        fish1.setKitchen("ME");
+
+        fish1.setCookingMaterials("Ingredients\n" + "");
+        fish1.setCookingMethod("Method\n" +
+                "");
+
+        if(dbSource.isFishTableEmpty())
+        {
+            dbSource.insertFish(fish1);
+        }
+
+        btTipsTrick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
     }
@@ -76,7 +104,7 @@ public class MainActivity extends ActionBarActivity {
     private Context context;
 
     // TODO: change to your own sender ID to Google Developers Console project number, as per instructions above
-    private static final String SENDER_ID = "My Project Number";
+    private static final String SENDER_ID = "484003405342";
 
     public GcmRegistrationAsyncTask(Context context) {
         this.context = context;
