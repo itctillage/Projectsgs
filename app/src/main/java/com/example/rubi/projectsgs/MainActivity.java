@@ -20,11 +20,9 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -86,7 +84,7 @@ public class MainActivity extends ActionBarActivity {
                 "freshly ground black pepper\n" +
                 "700 g new potatoes\n" +
                 "100 g runner beans\n" +
-                "100 g green beans\n" + "\n");
+                "100 g green beans\n");
         fish2.setCookingMethod("Method:\n" +
                 "Preheat the oven to 230ºC/450ºF/gas 8.\n" +
                 "Half-fill a large saucepan with cold water and add a tiny pinch of salt.\n" +
@@ -103,14 +101,71 @@ public class MainActivity extends ActionBarActivity {
         fish3.setCookingName("Baked Seabass with fennel");
         fish3.setKitchen("From: Good Food");
         fish3.setType(SeafoodConstant.TYPE_FISH);
-        fish3.setCookingMaterials("Ingredients:\n");
-        fish3.setCookingMethod("Method:\n");
+        fish3.setCookingMaterials("Ingredients:\n" +
+                "2 small sea bass, scaled and gutted\n" +
+                "1 fennel bulb, sliced\n" +
+                "1 lemon, sliced\n" +
+                "handful basil leaves, roughly torn\n" +
+                "small handful black olives\n" +
+                "1 tbsp olive oil\n");
+        fish3.setCookingMethod("Method:\n" +
+                "Heat oven to 200C/180C fan/gas 6.\n" +
+                "Rinse and dry the fish. Season all over, then stuff the cavity with some fennel slices, lemon and basil.\n " +
+                "Scatter the olives and any leftover fennel, basil and lemon into a roasting tin.\n" +
+                "Place the sea bass on top. Drizzle each fish with the oil and bake for about 30 mins or until cooked through and starting to brown.");
+
+        FishObject fish4 = new FishObject();
+        fish4.setImageId(R.drawable.fishbulgar);
+        fish4.setCookingName("White Fish with Spiced bulghar pilaf");
+        fish4.setKitchen("From: Good Food");
+        fish4.setType(SeafoodConstant.TYPE_FISH);
+        fish4.setCookingMaterials("Ingredients:\n" +
+                "4 firm white fish fillets\n" +
+                "1 tbsp olive oil\n" +
+                "2 onions, finely sliced\n" +
+                "3 carrots, grated\n" +
+                "2 tsp cumin seeds\n" +
+                "2 tbsp harissa\n" +
+                "200g bulghar wheat\n" +
+                "6 dried apricots, chopped\n" +
+                "700ml weak chicken stock (using 1 stock cube)\n" +
+                "200g baby spinach\n" +
+                "4 thin lemon slices\n");
+        fish4.setCookingMethod("Method:\n"+
+                "Heat the oil in a lidded flameproof casserole dish. Tip in the onions and cook for 10 mins until soft and golden.\n" +
+                "Add the carrots and cumin, and cook for 2 mins more.\n" +
+                "Stir through the harissa, bulghar and apricots, pour over the stock and bring to the boil. Cover and simmer for 7 mins.\n" +
+                "Add the spinach and stir through until just wilted. Arrange the fish fillets on top, pop a slice of lemon on each and season.\n" +
+                "Replace the lid and cook for 8 mins, keeping over a low-ish heat.\n" +
+                "Turn heat to low and cook for 7-8 mins more until the fish is cooked through and the bulghar is tender. Season with pepper and serve.");
+
+        FishObject fish5 = new FishObject();
+        fish5.setImageId(R.drawable.thaisalmon);
+        fish5.setCookingName("Grill Thai Salmon");
+        fish5.setKitchen("From: Good Food");
+        fish5.setType(SeafoodConstant.TYPE_FISH);
+        fish5.setCookingMaterials("Ingredients:\n" +
+                "4 x 140g/5oz salmon fillets\n" +
+                "2 tsp sunflower oil\n" +
+                "small knob of root ginger, peeled and grated\n" +
+                "1 mild red chilli, finely sliced \n" +
+                "bunch spring onions, finely sliced\n" +
+                "1½ tbsp sweet soy sauce\n" +
+                "¼ tsp sugar\n" +
+                "1 x 20g pack coriander, leaves only chopped\n");
+        fish5.setCookingMethod("Method:\n" +
+                "Heat grill to high. Place the fish in a shallow baking dish.\n" +
+                "Grill for 4-5 mins until cooked through, but still a little pink in the centre. Cover and set aside.\n" +
+                "Heat a wok, add the oil, then stir-fry the ginger, chilli and spring onions for 2-3 mins. Stir in the soy, sugar and a splash of water, then take off the heat.\n" +
+                "Throw in the coriander and serve immediately with the salmon.");
 
         if(dbSource.isFishTableEmpty())
         {
             dbSource.insertFish(fish1);
             dbSource.insertFish(fish2);
             dbSource.insertFish(fish3);
+            dbSource.insertFish(fish4);
+            dbSource.insertFish(fish5);
         }
 
         btTipsTrick.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +199,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+//--------------------------------------------------------------------------------------------------
     class GcmRegistrationAsyncTask extends AsyncTask<Context, Void, String> {
     private static Registration regService = null;
     private GoogleCloudMessaging gcm;
@@ -155,7 +211,6 @@ public class MainActivity extends ActionBarActivity {
     public GcmRegistrationAsyncTask(Context context) {
         this.context = context;
     }
-
 
     protected String doInBackground(Context... params) {
         if (regService == null) {
@@ -172,7 +227,6 @@ public class MainActivity extends ActionBarActivity {
                         }
                     });
             // end of optional local run code
-
             regService = builder.build();
         }
 
@@ -196,11 +250,11 @@ public class MainActivity extends ActionBarActivity {
         }
         return msg;
     }
-
         @Override
         protected void onPostExecute(String msg) {
         Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
         Logger.getLogger("REGISTRATION").log(Level.INFO, msg);
     }
+//--------------------------------------------------------------------------------------------------
 }
 
