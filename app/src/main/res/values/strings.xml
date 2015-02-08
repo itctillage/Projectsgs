@@ -7,7 +7,8 @@
 
 
     <string name="title_activity_seafood_species">Seafood Species</string>
-    <string name="title_activity_seafood_fish_recipe">Fish Recipes</string>
-    <string name="title_activity_seafood_shellfish_recipe">Shellfish Recipes</string>/>
+    <string name="title_activity_seafood_fish_details">Fish Details</string>
+    <string name="title_activity_seafood_shellfish_details">Shellfish Details</string>/>
+    <string name="title_activity_recipe_details">Recipe Details</string>/>
 
 </resources>

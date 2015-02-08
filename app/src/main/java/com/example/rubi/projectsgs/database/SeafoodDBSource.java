@@ -45,11 +45,12 @@ public class SeafoodDBSource
         values.put(FishTable.COLUMN_METHOD, fishes.getCookingMethod());
         values.put(FishTable.COLUMN_NAME, fishes.getCookingName());
         values.put(FishTable.COLUMN_TYPE, fishes.getType());
+        values.put(FishTable.COLUMN_KITCHEN, fishes.getKitchen());
         long insertId = database.insert(FishTable.TABLE_NAME, null,
                 values);
         Cursor cursor = database.query(FishTable.TABLE_NAME,
                 FishTable.ALL_COLUMNS, FishTable.COLUMN_ID + " = " + insertId, null,
-                null, null, null);
+                null, null, null, null);
 
         cursor.moveToFirst();
         FishObject newFish = cursorToFish(cursor);
@@ -66,7 +67,8 @@ public class SeafoodDBSource
         fishObject.setCookingName(cursor.getString(2));
         fishObject.setCookingMaterials(cursor.getString(3));
         fishObject.setCookingMethod(cursor.getString(4));
-        fishObject.setImageId(cursor.getInt(5));
+        fishObject.setKitchen(cursor.getString(5));
+        fishObject.setImageId(cursor.getInt(6));
         return fishObject;
 
     }
@@ -87,7 +89,7 @@ public class SeafoodDBSource
         ArrayList<FishObject> fishList = new ArrayList<FishObject>();
 
         Cursor cursor = database.query(FishTable.TABLE_NAME,
-                FishTable.ALL_COLUMNS, null, null, null, null, null);
+                FishTable.ALL_COLUMNS, null, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {

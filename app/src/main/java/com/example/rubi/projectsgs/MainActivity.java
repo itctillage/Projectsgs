@@ -53,18 +53,64 @@ public class MainActivity extends ActionBarActivity {
         dbSource.open();
 
         FishObject fish1 = new FishObject();
-        fish1.setImageId(R.drawable.ic_kerapu);
-        fish1.setCookingName("COD in Batter");
+        fish1.setImageId(R.drawable.blackcod);
+        fish1.setCookingName("Marinated Black Cod");
+        fish1.setKitchen("From: NOBU");
         fish1.setType(SeafoodConstant.TYPE_FISH);
-        fish1.setKitchen("ME");
+        fish1.setCookingMaterials("Ingredients:\n" +
+                "1/4 cup sake.\n" +
+                "1/4 cup mirin.\n" +
+                "4 tablespoons white miso paste.\n" +
+                "3 tablespoons sugar.\n" +
+                "4 black cod fillets, about 1/2 pound each.\n " );
+        fish1.setCookingMethod("Method:\n" +
+                "2 days beforehand, make the miso marinade and marinate the fish.\n" +
+                "Boil sake and  mirin in a medium saucepan over high heat for 20 seconds and add the miso paste and whisk. \n" +
+                "When the miso has dissolved completely, turn the heat up to high again and add the sugar, whisking constantly to ensure that the sugar doesn't burn on the bottom of the pan.\n" +
+                "Remove from heat once the sugar is fully dissolved. Cool to room temperature.\n" +
+                "Pat the black cod fillets thoroughly dry with paper towels. Slather the fish with the miso marinade and place in a non-reactive dish or bowl and cover tightly with plastic wrap.\n"+
+                "Leave to marinate in refrigerator for 2 to 3 days.\n" + "\n" +
+                "To cook the fish:\n" +
+                "Preheat oven to 400°F.\n" +
+                "Lightly wipe off any excess miso clinging to the fillets but don't rinse it off.\n" +
+                "Place the fish skin-side-up on the pan until the surface of the fish browns and blackens in spots, about 3 minutes. \n" +
+                "Flip it until the other side is browned. Transfer to the oven and bake for 5 to 10 minutes, until fish is opaque and flakes easily.");
 
-        fish1.setCookingMaterials("Ingredients\n" + "");
-        fish1.setCookingMethod("Method\n" +
-                "");
+        FishObject fish2 = new FishObject();
+        fish2.setImageId(R.drawable.bakedsalmon);
+        fish2.setCookingName("Baked Salmon");
+        fish2.setKitchen("From: Jamie Oliver");
+        fish2.setType(SeafoodConstant.TYPE_FISH);
+        fish2.setCookingMaterials("Ingredients:\n" +
+                "sea salt\n" +
+                "freshly ground black pepper\n" +
+                "700 g new potatoes\n" +
+                "100 g runner beans\n" +
+                "100 g green beans\n" + "\n");
+        fish2.setCookingMethod("Method:\n" +
+                "Preheat the oven to 230ºC/450ºF/gas 8.\n" +
+                "Half-fill a large saucepan with cold water and add a tiny pinch of salt.\n" +
+                "Scrub the new potatoes and cut bigger ones in half, leaving the smaller ones whole.\n" +
+                "cut the runner beans into the stringy piece that runs the length of the bean.\n" +
+                "Once boiling, carefully lower the potatoes into the water cooked for 10 minutes and add all the beans cooked further for 4 minutes\n" +
+                "Drain the potatoes and beans, then tip into roasting tray, dot over the butter and drizzle with olive oil.\n" +
+                "Rub each fillet with a little salt, pepper and olive oil, and place on top of the potatoes and beans\n" +
+                "and place on top of the potatoes and beans.\n" +
+                "Bake in the hot oven for 10 to 15 minutes, until the salmon is cooked through and the vegetables are soft.");
+
+        FishObject fish3 = new FishObject();
+        fish3.setImageId(R.drawable.seabass);
+        fish3.setCookingName("Baked Seabass with fennel");
+        fish3.setKitchen("From: Good Food");
+        fish3.setType(SeafoodConstant.TYPE_FISH);
+        fish3.setCookingMaterials("Ingredients:\n");
+        fish3.setCookingMethod("Method:\n");
 
         if(dbSource.isFishTableEmpty())
         {
             dbSource.insertFish(fish1);
+            dbSource.insertFish(fish2);
+            dbSource.insertFish(fish3);
         }
 
         btTipsTrick.setOnClickListener(new View.OnClickListener() {

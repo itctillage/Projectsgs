@@ -12,7 +12,7 @@ import com.example.rubi.projectsgs.Model.FishObject;
 /**
  * Created by Rubi on 05/02/2015.
  */
-public class SeafoodDetails extends ActionBarActivity {
+public class RecipeDetails extends ActionBarActivity {
 
     private ImageView ivFish;
     private TextView tvName;
@@ -24,7 +24,7 @@ public class SeafoodDetails extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seafood_details);
+        setContentView(R.layout.activity_recipe_details);
 
         ivFish = (ImageView) findViewById(R.id.iv_fish);
         tvName = (TextView) findViewById(R.id.tv_name_sf);
@@ -37,8 +37,8 @@ public class SeafoodDetails extends ActionBarActivity {
         if (fishObject != null) {
             ivFish.setImageResource(fishObject.getImageId());
             tvName.setText(fishObject.getCookingName());
-            tvMaterials.setText(fishObject.getCookingMaterials());
             tvKitchen.setText(fishObject.getKitchen());
+            tvMaterials.setText(fishObject.getCookingMaterials());
             tvMethod.setText(fishObject.getCookingMethod());
         }
     }

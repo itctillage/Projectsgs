@@ -9,14 +9,14 @@ import java.util.ArrayList;
 /**
  * Created by Rubi on 09/01/2015.
  */
-public class ShellfishRecipe  extends ActionBarActivity {
+public class ShellfishDetails extends ActionBarActivity {
 
     private ArrayList<String> recipeList;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seafood_shellfish_recipe);
+        setContentView(R.layout.activity_seafood_shellfish_details);
 
         recipeList = new ArrayList<>();
         recipeList.add("Lobster");

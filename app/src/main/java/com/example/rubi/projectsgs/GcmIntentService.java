@@ -53,7 +53,7 @@ public class GcmIntentService extends IntentService {
     }
     private static void generateNotification(Context context, String message) {
 
-        int icon = R.drawable.ic_launcher;
+        int icon = R.drawable.logo;
         long when = System.currentTimeMillis();
 
         NotificationManager notificationManager = (NotificationManager)

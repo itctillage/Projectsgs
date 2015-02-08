@@ -12,7 +12,7 @@ import com.example.rubi.projectsgs.Model.FishTable;
 public class SeafoodDBHelper extends SQLiteOpenHelper {
 
     private static final String db_name = "fishCooking.db";
-    private static final int db_version = 1;
+    private static final int db_version = 3;
     private Context ctx;
 
     private static final String db_create_fishCooking = "create table "
@@ -22,6 +22,7 @@ public class SeafoodDBHelper extends SQLiteOpenHelper {
             + FishTable.COLUMN_MATERIAL + " varchar(50) not null, "
             + FishTable.COLUMN_TYPE + " varchar(50) not null, "
             + FishTable.COLUMN_METHOD + " varchar(50) not null, "
+            + FishTable.COLUMN_KITCHEN + " varchar(50) not null, "
             + FishTable.COLUMN_IMAGE + " text not null);";
 
     public SeafoodDBHelper(Context context) {

@@ -26,13 +26,13 @@ public class SeafoodSpecies extends SeafoodBaseAct {
         cvFish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SeafoodSpecies.this, FishRecipe.class));
+                startActivity(new Intent(SeafoodSpecies.this, FishDetails.class));
             }
         });
         cvShellfish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SeafoodSpecies.this, ShellfishRecipe.class));
+                startActivity(new Intent(SeafoodSpecies.this, ShellfishDetails.class));
             }
         });
 

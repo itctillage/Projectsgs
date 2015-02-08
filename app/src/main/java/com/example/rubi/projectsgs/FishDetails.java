@@ -18,7 +18,7 @@ import com.example.rubi.projectsgs.Model.FishObject;
 
 import java.util.ArrayList;
 
-public class FishRecipe extends SeafoodBaseAct {
+public class FishDetails extends SeafoodBaseAct {
 
     ArrayList<FishObject> recipeList;
     SeafoodDBSource dataSource;
@@ -26,7 +26,7 @@ public class FishRecipe extends SeafoodBaseAct {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seafood_fish_recipe);
+        setContentView(R.layout.activity_seafood_fish_details);
         dataSource = new SeafoodDBSource(this);
         dataSource.open();
 
@@ -42,7 +42,7 @@ public class FishRecipe extends SeafoodBaseAct {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,final int position, long id) {
-                startActivity(new Intent(FishRecipe.this, SeafoodDetails.class).putExtra("data", recipeList.get(position)));
+                startActivity(new Intent(FishDetails.this, RecipeDetails.class).putExtra("data", recipeList.get(position)));
             }
 
         });
