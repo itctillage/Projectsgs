@@ -159,6 +159,24 @@ public class MainActivity extends ActionBarActivity {
                 "Heat a wok, add the oil, then stir-fry the ginger, chilli and spring onions for 2-3 mins. Stir in the soy, sugar and a splash of water, then take off the heat.\n" +
                 "Throw in the coriander and serve immediately with the salmon.");
 
+        FishObject fish6 = new FishObject();
+        fish6.setImageId(R.drawable.ssprawn);
+        fish6.setCookingName("Szechuan sweet & sour prawns");
+        fish6.setKitchen("From: Jamieoliver.com");
+        fish6.setType(SeafoodConstant.TYPE_SHELLFISH);
+        fish6.setCookingMaterials("Ingredients:\n" +
+                "300g pineapple\n"+
+                "1 red and yellow pepper\n"+
+                "2 cloves of garlic\n"+
+                "2 fresh red chillies\n"
+                );
+        fish6.setCookingMethod("Method:\n" +
+                "Peel and slice the pineapple lengthways into 8 wedges, de-seed and finely slice the peppers lenghtway. \n"+
+                "Place chillies, garlic and ginger into a pestle and mortar bash with salt to a rough paste.\n"+
+                "Place the mixed paste into large a bowl with the prawns and a splash of oil, then mix well.\n"+
+                "Add oil in frying pan over a medium-high heat,"
+                );
+
         if(dbSource.isFishTableEmpty())
         {
             dbSource.insertFish(fish1);
@@ -166,6 +184,7 @@ public class MainActivity extends ActionBarActivity {
             dbSource.insertFish(fish3);
             dbSource.insertFish(fish4);
             dbSource.insertFish(fish5);
+            dbSource.insertFish(fish6);
         }
 
         btTipsTrick.setOnClickListener(new View.OnClickListener() {
@@ -205,7 +224,7 @@ public class MainActivity extends ActionBarActivity {
     private GoogleCloudMessaging gcm;
     private Context context;
 
-    // TODO: change to your own sender ID to Google Developers Console project number, as per instructions above
+    // TODO: change to your own sender ID to Google Developers Console project number.
     private static final String SENDER_ID = "484003405342";
 
     public GcmRegistrationAsyncTask(Context context) {

@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.example.rubi.projectsgs.Model.FishObject;
 import com.example.rubi.projectsgs.Model.FishTable;
+import com.example.rubi.projectsgs.utils.SeafoodConstant;
 
 import java.util.ArrayList;
 
@@ -89,7 +90,7 @@ public class SeafoodDBSource
         ArrayList<FishObject> fishList = new ArrayList<FishObject>();
 
         Cursor cursor = database.query(FishTable.TABLE_NAME,
-                FishTable.ALL_COLUMNS, null, null, null, null, null, null);
+                FishTable.ALL_COLUMNS, "type = '" + SeafoodConstant.TYPE_FISH + "'", null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -99,6 +100,22 @@ public class SeafoodDBSource
         }
         cursor.close();
         return fishList;
+    }
+    public ArrayList<FishObject> getAllShellfish()
+    {
+        ArrayList<FishObject> shellfishList = new ArrayList<FishObject>();
+
+        Cursor cursor = database.query(FishTable.TABLE_NAME,
+                FishTable.ALL_COLUMNS, "type = '" + SeafoodConstant.TYPE_SHELLFISH + "'", null, null, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            FishObject fishObject = cursorToFish(cursor);
+            shellfishList.add(fishObject);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return shellfishList;
     }
 
 }

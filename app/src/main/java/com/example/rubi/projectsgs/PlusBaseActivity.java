@@ -143,7 +143,6 @@ public abstract class PlusBaseActivity extends Activity
 
         updateConnectButtonState();
     }
-
     /**
      * Revoke Google+ authorization completely.
      */
@@ -230,7 +229,6 @@ public abstract class PlusBaseActivity extends Activity
             setProgressBarVisible(false);
         }
     }
-
     /**
      * Successfully connected (called by PlusClient)
      */

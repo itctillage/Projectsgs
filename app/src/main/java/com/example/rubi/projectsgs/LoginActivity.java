@@ -120,8 +120,6 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     private void populateAutoComplete() {
         getLoaderManager().initLoader(0, null, this);
     }
-
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the

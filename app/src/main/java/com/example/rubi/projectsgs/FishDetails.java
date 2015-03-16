@@ -27,6 +27,7 @@ public class FishDetails extends SeafoodBaseAct {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seafood_fish_details);
+
         dataSource = new SeafoodDBSource(this);
         dataSource.open();
 
@@ -35,7 +36,8 @@ public class FishDetails extends SeafoodBaseAct {
 
 
         final ListView listview = (ListView) findViewById(R.id.lv_mon_listview);
-        final FishRecipeAdapter adapter = new FishRecipeAdapter(this, recipeList);
+        final FishRecipeAdapter adapter = new FishRecipeAdapter(this,
+                recipeList);
         listview.setAdapter(adapter);
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
