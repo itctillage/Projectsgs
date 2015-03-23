@@ -36,7 +36,7 @@ public class FishRecipeAdapter extends ArrayAdapter<FishObject> {
         TextView txtTitle = (TextView) rowView.findViewById(R.id.tv_fish_item);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.iv_fish_item);
 
-        txtTitle.setText("Job Name "+fishes.get(position).getCookingName());
+        txtTitle.setText("  "+fishes.get(position).getCookingName());
         imageView.setImageResource(fishes.get(position).getImageId());
 
         return rowView;

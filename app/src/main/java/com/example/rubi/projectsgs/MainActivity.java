@@ -1,5 +1,6 @@
 package com.example.rubi.projectsgs;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -15,6 +16,7 @@ import com.example.rubi.myapplication.backend.registration.Registration;
 import com.example.rubi.projectsgs.Model.FishObject;
 import com.example.rubi.projectsgs.database.SeafoodDBSource;
 import com.example.rubi.projectsgs.utils.SeafoodConstant;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -190,7 +192,7 @@ public class MainActivity extends ActionBarActivity {
         btTipsTrick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                startActivity(new Intent(MainActivity.this, TipsTricks.class));
             }
         });
     }
@@ -212,6 +214,8 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent j = new Intent(this, SettingsActivity.class);
+            startActivity(j);
             return true;
         }
 
