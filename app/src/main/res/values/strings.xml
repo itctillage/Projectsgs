@@ -15,6 +15,9 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_tips_tricks">TipsTricks</string>
     <string name="title_activity_tand_t">TandT</string>
+    <string name="title_activity_upload_image">UploadImage</string>
+    <string name="upload_hostname">/74.125.138.141</string>
+    <string name="get_upload_url">/get_blobstore_url</string>
 
 
 </resources>

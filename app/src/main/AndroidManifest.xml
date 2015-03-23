@@ -115,6 +115,10 @@
             android:name=".TandT"
             android:label="@string/title_activity_tand_t" >
         </activity>
+        <activity
+            android:name=".UploadImage"
+            android:label="@string/title_activity_upload_image" >
+        </activity>
     </application>
 
 </manifest>

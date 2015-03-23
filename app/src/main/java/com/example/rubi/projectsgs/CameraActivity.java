@@ -32,6 +32,7 @@ public class CameraActivity extends Activity
             setContentView(R.layout.activity_camera);
 
             Button btCamera = (Button) findViewById(R.id.bt_camera);
+            Button btUpload = (Button) findViewById(R.id.btn_Upload);
             ivCamera = (ImageView) findViewById(R.id.iv_camera);
 
             btCamera.setOnClickListener(new OnClickListener() {
@@ -41,6 +42,12 @@ public class CameraActivity extends Activity
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                     startActivityForResult(intent, CAMERA_REQUEST_CODE);
+                }
+            });
+            btUpload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(CameraActivity.this, UploadImage.class));
                 }
             });
         }
