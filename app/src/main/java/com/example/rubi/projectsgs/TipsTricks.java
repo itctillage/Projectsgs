@@ -1,18 +1,20 @@
 package com.example.rubi.projectsgs;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.rubi.projectsgs.Share.ShareImages;
+
 
 public class TipsTricks extends SeafoodBaseAct {
 
     private CardView cvTipsTricks;
     private CardView cvTakePicture;
+    private CardView cvPlayTube;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class TipsTricks extends SeafoodBaseAct {
 
         cvTipsTricks = (CardView) findViewById(R.id.cv_TipsTricks);
         cvTakePicture = (CardView) findViewById(R.id.cv_TakePicture);
+        cvPlayTube = (CardView) findViewById(R.id.cv_PlayTube);
 
         cvTipsTricks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,7 +34,13 @@ public class TipsTricks extends SeafoodBaseAct {
         cvTakePicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(TipsTricks.this, CameraActivity.class));
+                startActivity(new Intent(TipsTricks.this, ShareImages.class));
+            }
+        });
+        cvPlayTube.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TipsTricks.this, ytbActivity.class));
             }
         });
 

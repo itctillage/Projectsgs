@@ -6,34 +6,52 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.rubi.projectsgs.CameraActivity" >
+    android:background="@drawable/logo"
+    tools:context=".CameraActivity">
 
-    <ImageView
-        android:layout_alignParentTop="true"
-        android:id="@+id/iv_camera"
-        android:layout_width="400dp"
-        android:layout_height="390dp"
-        android:contentDescription="@string/hello_camera"
-        android:cropToPadding="false" />
-
-    <Button
-        android:id="@+id/bt_camera"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Take Picture"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/iv_camera"
-        android:layout_alignParentStart="true" />
+        android:text="@string/hello_world" />
+
     <Button
-        android:id="@+id/btn_Upload"
+        android:id="@+id/uploadImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Upload"
-        android:layout_marginStart="36dp"
-        android:layout_below="@+id/iv_camera"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/bt_camera" />
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:onClick="UploadActivity"
+        android:text="Upload Image" />
 
+    <Button
+        android:id="@+id/downloadImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uploadImageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:onClick="DownloadActivity"
+        android:text="Download Image" />
+
+    <Button
+        android:id="@+id/downloadAllImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/downloadImageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:onClick="DownloadAllActivity"
+        android:text="Download All Images" />
+
+    <Button
+        android:id="@+id/helloGridViewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/downloadAllImageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:onClick="HelloGridViewActivity"
+        android:text="Hello GridView" />
 
 </RelativeLayout>
